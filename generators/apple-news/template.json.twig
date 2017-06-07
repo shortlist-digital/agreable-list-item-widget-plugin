@@ -1,0 +1,42 @@
+{
+  "role": "container",
+  "layout": {
+    "columnStart": 0,
+    "columnSpan": 7,
+    "ignoreDocumentMargin": true
+  },
+  "components": [
+    {
+      "role": "title",
+      "text": {{heading|json_encode}},
+      "textStyle": "subheadingTextStyle",
+      "layout": {
+        "margin": {
+          "top": 16,
+          "bottom": 10
+        }
+      }
+    },
+    {
+      "role": "photo",
+      "URL": "{{image}}",
+      "caption": {{heading|json_encode}},
+      "layout": "marginLayout"
+    },
+    {
+      "role": "body",
+      "text": {{copy|json_encode}},
+      "textStyle": "bodyTextStyle",
+      "layout": {
+        "margin": {
+          "bottom": 20
+        }
+      }
+    }
+  ],
+   "animation": {
+    "type": "fade_in",
+    "userControllable": true,
+    "initialAlpha": 0
+  }
+}
