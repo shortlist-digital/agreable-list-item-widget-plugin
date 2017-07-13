@@ -1,24 +1,26 @@
 <?php
 
+$key = 'widget_list_item';
+
 $widgetplacement = self::$config['tab_placement'];
 
 $choices = self::$config['image_choices'];
 $choices['original'] = 'Original';
 
 $widget_config = array (
-  'key' => 'widget_list_item',
+  'key' => $key,
   'name' => 'list-item',
   'label' => 'List Item',
   'display' => 'row',
   'sub_fields' => array (
     array (
-      'key' => 'list_item_basic_details_tab',
+      'key' => $key . '_basic_details_tab',
       'label' => 'Basic Details',
       'type' => 'tab',
       'placement' => $widgetplacement,
     ),
     array (
-      'key' => 'widget_listitem_heading',
+      'key' => 'widget_listitem_heading', // needs a migration for consistentcy
       'label' => 'Heading',
       'name' => 'heading',
       'type' => 'text',
@@ -39,7 +41,7 @@ $widget_config = array (
       'type' => 'strict_wysiwyg',
     ),
     array (
-      'key' => 'list_item_advanced_details_tab',
+      'key' => $key . '_advanced_details_tab',
       'label' => 'Advanced Details',
       'type' => 'tab',
       'placement' => $widgetplacement,
@@ -57,5 +59,5 @@ $widget_config = array (
   )
 );
 
-$widget_config["content-types"] = array('post');
+$widget_config["content-types"] = get_option("options_" . $key . "_available_post_types");
 $widget_config["content-sizes"] = array('main');
