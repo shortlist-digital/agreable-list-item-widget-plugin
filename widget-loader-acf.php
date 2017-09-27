@@ -5,7 +5,7 @@ $key = 'widget_list_item';
 $widgetplacement = self::$config['tab_placement'];
 
 $choices = self::$config['image_choices'];
-$choices['original'] = 'Original';
+$choices['original'] = 'No crop';
 
 $widget_config = array (
   'key' => $key,
@@ -40,21 +40,21 @@ $widget_config = array (
       'name' => 'copy',
       'type' => 'strict_wysiwyg',
     ),
+	array (
+	  'key' => 'widget_listitem_crop',
+	  'label' => 'Select an image crop (image shape)',
+	  'name' => 'crop',
+	  'type' => 'select',
+	  'instructions' => 'This will force this item to have a certain crop. Don&rsquo;t forget to manually adjust the crop for each image.',
+	  'required' => 1,
+	  'choices' => $choices,
+	  'default_value' => 'square',
+	),
     array (
       'key' => $key . '_advanced_details_tab',
       'label' => 'Advanced Details',
       'type' => 'tab',
       'placement' => $widgetplacement,
-    ),
-    array (
-      'key' => 'widget_listitem_crop',
-      'label' => 'Select an image crop (image shape)',
-      'name' => 'crop',
-      'type' => 'select',
-      'instructions' => 'This will force this item to have a certain crop. Don&rsquo;t forget to manually adjust the crop for each image.',
-      'required' => 1,
-      'choices' => $choices,
-      'default_value' => 'square',
     )
   )
 );
